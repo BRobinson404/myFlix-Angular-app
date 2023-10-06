@@ -10,7 +10,6 @@ Welcome to the myFlix Angular Client project. This client-side application is pa
 5. [Folder Structure](#folder-structure)
 6. [Dependencies](#dependencies)
 7. [Contributing](#contributing)
-8. [License](#license)
 
 ## Introduction
 This Angular application serves as the user interface for the myFlix movie database. It provides a user-friendly interface for users to register, log in, browse movies, view movie details, and manage their profiles.
@@ -69,6 +68,3 @@ Contributions to this project are welcome. Please follow the standard GitHub flo
 3. Make changes and commit them.
 4. Push your branch to your fork.
 5. Create a pull request against the main repository.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
