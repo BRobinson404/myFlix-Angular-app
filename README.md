@@ -2,6 +2,8 @@
 
 Welcome to the myFlix Angular Client project. This client-side application is part of the myFlix movie database project and allows users to interact with movie data, including user registration, login, movie listings, and user profiles.
 
+View the live version of my app HERE -> <a>https://brobinson404.github.io/myFlix-Angular-app/welcome<a>
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Features](#features)
