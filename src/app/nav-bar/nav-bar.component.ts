@@ -13,6 +13,10 @@ export class NavbarComponent {
     public router: Router
   ) { }
 
+  /**
+   * Logs out the current user by removing user-related data from localStorage
+   * and navigating to the 'welcome' page.
+   */
   logoutUser(): void {
     localStorage.removeItem('user');
     localStorage.removeItem('token');

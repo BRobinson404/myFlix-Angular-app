@@ -1,15 +1,7 @@
-// src/app/user-registration-form/user-registration-form.component.ts
 import { Component, OnInit, Input } from '@angular/core';
-
-// You'll use this import to close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
-
-// This import brings in the Myflix API calls
 import { FetchApiDataService } from '../fetch-api-data.service';
-
-// This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 
 @Component({
   selector: 'app-user-registration-form',
@@ -20,29 +12,33 @@ export class UserRegistrationFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
-constructor(
+  constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar
+  ) { }
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+  }
 
-// This is the function responsible for sending the form inputs to the backend
-registerUser(): void {
+  /**
+   * Sends user registration data to the backend for user registration.
+   * If successful, closes the dialog and displays a success message.
+   */
+  registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
-  // Logic for a successful user registration goes here! (To be implemented)
-     this.dialogRef.close(); // This will close the modal on success!
-     console.log(response)
-     this.snackBar.open('user registered successfully!', 'OK', {
+      // Logic for a successful user registration goes here! (To be implemented)
+      this.dialogRef.close(); // Close the modal on success
+      console.log(response);
+      this.snackBar.open('User registered successfully!', 'OK', {
         duration: 2000
-     });
+      });
     }, (response) => {
-      console.log(response)
+      console.log(response);
+      // Handle registration error and display an error message
       this.snackBar.open(response, 'OK', {
         duration: 2000
       });
     });
   }
-
-  }
+}

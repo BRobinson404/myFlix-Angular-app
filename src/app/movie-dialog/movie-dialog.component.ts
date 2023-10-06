@@ -12,6 +12,9 @@ export class MovieDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: { movie: any; dialogType: 'genre' | 'director' | 'synopsis' }
   ) {}
 
+  /**
+   * Closes the movie dialog.
+   */
   closeDialog(): void {
     this.dialogRef.close();
   }

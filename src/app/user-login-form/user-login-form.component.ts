@@ -1,16 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-
-// You'll use this import to close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
-
-// This import brings in the API calls we created in 6.2
 import { FetchApiDataService } from '../fetch-api-data.service';
-
-// This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-
 
 @Component({
   selector: 'app-user-login-form',
@@ -30,32 +22,28 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-/**
- * This method will send the form inputs to the backend
- * @param void
- * @returns user object
- * @memberof UserLoginFormComponent
- * @see FetchApiDataService.userLogin()
- * @example loginUser()
- */
-  // This is the function responsible for sending the form inputs to the backend
+
+  /**
+   * Sends the user's login data to the backend for authentication.
+   * If successful, stores user information and token in localStorage and closes the dialog.
+   * @returns void
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.loginData).subscribe((result) => {
       // Logic for a successful user login goes here! (To be implemented)
-      localStorage.setItem('user', JSON.stringify(result.user));//result.user.Username   --instead JSON.stringify?
+      localStorage.setItem('user', JSON.stringify(result.user));
       localStorage.setItem('token', result.token);
       
-      this.dialogRef.close(); // This will close the modal on success!
+      this.dialogRef.close(); // Close the modal on success
       this.router.navigate(['movies']);
       this.snackBar.open('Logged in', 'OK', {
         duration: 2000
       });
-      this.router.navigate(['movies']);
     }, (result) => {
+      // Handle login error and display a snackbar message
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
     });
   }
-
 }

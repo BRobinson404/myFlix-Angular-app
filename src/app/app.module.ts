@@ -23,7 +23,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { MovieDialogComponent } from './movie-dialog/movie-dialog.component';
 import { NavbarComponent } from './nav-bar/nav-bar.component';
 
-
+// Define the application's routes
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
@@ -56,7 +56,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatToolbarModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes), // Configure application routes
   ],
   providers: [],
   bootstrap: [AppComponent]
